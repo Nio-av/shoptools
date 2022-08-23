@@ -1,0 +1,13 @@
+image: alpine:latest
+
+pages:
+  stage: deploy
+  tags:
+    - linux-next
+  script:
+    - echo 'publish via gitLab Pages'
+  artifacts:
+    paths:
+      - public
+  only:
+    - master

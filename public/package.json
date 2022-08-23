@@ -1,0 +1,25 @@
+{
+    "name": "lamp-dummy",
+    "version": "0.0.1",
+    "description": "This is an empty projekt.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Nio-av/LAMP-in-Docker.git"
+    },
+    "dependencies": {
+      "@webcomponents/custom-elements": "latest",
+      "@webcomponents/webcomponentsjs": "latest",
+      "current-script-polyfill": "latest"
+    },
+    "devDependencies": {
+      "create-polyfill-service-url": "latest"
+    },
+    "keywords": [],
+    "author": "Nicolas Tribukait (https://www.tribukait.eu)",
+    "license": "CC BY"
+  }
+  
