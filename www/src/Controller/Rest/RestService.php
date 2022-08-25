@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Rest;
 
 /**
  * Grundlegende Kommunikation mit einer REST API
