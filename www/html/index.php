@@ -13,9 +13,9 @@
   <h1>Shop Tools</h1>
   <h2>Entry Point for Shop Tools</h2>
   <ul>
-    <li><a href="/api.php?type=Json">Json</a></li>
-    <li><a href="/api.php?type=Xml">Xml</a></li>
-    <li><a href="/api.php?type=Csv">CSV</a></li>
+    <li><a href="/api/eur.php?type=Json">Json</a></li>
+    <li><a href="/api/eur.php?type=Xml">Xml</a></li>
+    <li><a href="/api/eur.php?type=Csv">CSV</a></li>
   </ul>
   <a href=" //localhost:8080">PHP My Admin</a>
   <?php
