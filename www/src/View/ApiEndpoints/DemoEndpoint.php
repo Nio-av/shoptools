@@ -4,13 +4,24 @@ namespace App\View\ApiEndpoints;
 
 class DemoEndpoint
 {
-    public function renderAction(): void
+    /**
+     * Returns dummy data
+     *
+     * @param string $type Json OR Xml OR Csv
+     */
+    public function renderAction(string $type = "Json"): void
     {
-        // $this->getExchangeRateCsv();
-
-        $this->getExchangeRateJson();
-
-        // $this->getExchangeRateXml();
+        switch ($type) {
+            case 'Json':
+                $this->getExchangeRateJson();
+                break;
+            case 'Csv':
+                $this->getExchangeRateCsv();
+                break;
+            case 'Xml':
+                $this->getExchangeRateXml();
+                break;
+        }
     }
 
     private function array2csv(array $data, string $delimiter = ',', $enclosure = '"', string $escape_char = "\\"): string
