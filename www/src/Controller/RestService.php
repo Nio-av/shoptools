@@ -5,7 +5,7 @@ namespace App\Controller;
 /**
  * Grundlegende Kommunikation mit einer REST API
  */
-class RestController
+class RestService
 {
     protected const API_ENDPOINT = "";
     protected const USERNAME = "";
