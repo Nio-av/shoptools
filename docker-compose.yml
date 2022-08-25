@@ -28,14 +28,14 @@ services:
         stdin_open: true
         tty: true
         volumes:
-            - ./public:/var/www/html
+            - ./www:/var/www
             - ./db_data:/var/lib/mysql
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         depends_on:
             - db
-        links: 
+        links:
             - db
         ports:
             - 8080:80
