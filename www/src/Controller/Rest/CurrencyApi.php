@@ -14,7 +14,7 @@ class CurrencyApi extends RestService
      *
      * @param string $sourceCurrency
      */
-    public function getExchangeRate(string $sourceCurrency): array
+    public function getExchangeRates(string $sourceCurrency): array
     {
         $this->setApiRessource('api/' . $sourceCurrency . '.php?type=Json');
         $apiData = $this->get();

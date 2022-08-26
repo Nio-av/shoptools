@@ -25,7 +25,7 @@ class Currency
     /**
      * @var float[]
      */
-    protected array $exchangeRate;
+    protected array $exchangeRates;
 
     /**
      * @param string $currencyCode ISO 4217
@@ -33,7 +33,7 @@ class Currency
     public function __construct(string $currencyCode)
     {
         $this->currencyCode = strtolower($currencyCode);
-        $this->getExchangeRateFromApi();
+        $this->getExchangeRatesFromApi();
     }
 
 
@@ -42,25 +42,25 @@ class Currency
      * @param float[] $exchangeRate associative array; format: [[EUR] => 1, [USD] => 5,]
      * @return void
      */
-    public function setExchangeRate(array $exchangeRate): void
+    public function setExchangeRates(array $exchangeRates): void
     {
-        $this->exchangeRate = $exchangeRate;
+        $this->exchangeRates = $exchangeRates;
     }
 
     /**
      * @return float[] $exchangeRate associative array; format: [[EUR] => 1, [USD] => 5,]
      */
-    public function getExchangeRate(): array
+    public function getExchangeRates(): array
     {
-        return $this->exchangeRate;
+        return $this->exchangeRates;
     }
 
     /**
      * Load Exchange Rate from API & save to object
      */
-    private function getExchangeRateFromApi(): void
+    private function getExchangeRatesFromApi(): void
     {
         $Api = new CurrencyApi();
-        $this->exchangeRate = $Api->getExchangeRate($this->currencyCode);
+        $this->exchangeRates = $Api->getExchangeRates($this->currencyCode);
     }
 }
