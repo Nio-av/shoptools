@@ -3,7 +3,7 @@
 namespace App\Controller\Rest;
 
 /**
- * Grundlegende Kommunikation mit einer REST API
+ * Basic Communication with a REST API
  */
 class RestService
 {
@@ -51,13 +51,13 @@ class RestService
     }
 
     /**
-     * Updaten an exiting Ressource
+     * Update an exiting Ressource
      */
     protected function put(): string
     {
         $curlOpt = [
             [
-                'option' => CURLOPT_POST, // wenn hier put steht, werden keine daten mitgesendet
+                'option' => CURLOPT_POST, // Do not write PUT here. Otherwise, no data will be send.
                 'value' => true,
             ],
             [
@@ -69,7 +69,7 @@ class RestService
                 'value' => ['Content-Length: ' . strlen($this->requestBody)],
             ],
             [
-                'option' => CURLOPT_CUSTOMREQUEST,  // ist zum erzeugen eines put notwendig
+                'option' => CURLOPT_CUSTOMREQUEST,  // Necessary for creating a put
                 'value' => "PUT",
             ],
             [
@@ -118,7 +118,7 @@ class RestService
     }
 
     /**
-     * Entfernt das gegebene Modell
+     * Remove given Modell
      */
     protected function delete(): string
     {
@@ -176,7 +176,7 @@ class RestService
             //Set the port.
             curl_setopt($curl, CURLOPT_PROXYPORT, $proxyPort);
 
-            //for debug only!
+            // for debug only!
             // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // https://www.php.net/manual/de/function.curl-setopt.php#110457
         }
