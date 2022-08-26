@@ -16,6 +16,9 @@ class CurrencyConverterService implements CurrencyConverterInterface
             foreach ($exchangeRates as $currency => $exchangeRate) {
                 $convertedValues[$currency] = $amount * (float) $exchangeRate;
             }
+            if (count($exchangeRates) < 1) {
+                // TODO: Log Error
+            }
         } else {
             // TODO: Log Error
         }

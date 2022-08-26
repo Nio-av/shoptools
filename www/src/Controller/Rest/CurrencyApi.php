@@ -35,7 +35,12 @@ class CurrencyApi extends RestService
         if (property_exists($object, 'exchangeRates')) {
             $exchangeRates = (array) $object->exchangeRates;
             $exchangeRates = array_map('floatval', $exchangeRates);
+            if (count($exchangeRates) < 1) {
+                // TODO: Log Error
+            }
             return $exchangeRates;
+        } else {
+            // TODO: Include Error Logger
         }
     }
 }
