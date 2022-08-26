@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controller\Interface;
+
 use App\Model\Currency;
 
 interface CurrencyConverterInterface
