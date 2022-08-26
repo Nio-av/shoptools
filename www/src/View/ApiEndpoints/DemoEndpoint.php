@@ -48,10 +48,10 @@ class DemoEndpoint
         $exchangeRate =  [
             'baseCurrency' => 'EUR',
             'exchangeRates' => [
-                'EUR' => '1',
-                'USD' => '5',
-                'CHF' => '0.97',
-                'CNY' => '2.3'
+                'EUR' => 1,
+                'USD' => 5,
+                'CHF' => 0.97,
+                'CNY' => 2.3
             ]
         ];
         return $exchangeRate;
@@ -76,6 +76,7 @@ class DemoEndpoint
     public function getExchangeRateXml(): string
     {
         $exchangeRate = $this->getExchangeRate()['exchangeRates'];
+        $exchangeRate = array_map('strval', $exchangeRate);
         $r = $this->array2xml(array_flip($exchangeRate));
         header('Content-Type: application/xml; charset=utf-8');
         echo $r;
