@@ -142,7 +142,7 @@ class RestService
     {
         $url = static::API_ENDPOINT . $this->apiRessource;
 
-        if (!is_null($this->apiRessourceId)) {
+        if (property_exists($this, 'apiRessourceId')) {
             $url .= '/' . $this->apiRessourceId;
         }
 
