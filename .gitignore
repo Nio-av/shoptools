@@ -1,8 +1,9 @@
 db_data/*
-!.gitkeep
 
 www/node_modules/
 www/vendor/*
+www/files/*
+www/repo/*
 */package-lock.json
 
 .DS_Store
@@ -12,3 +13,4 @@ www/vendor/*
 
 #Allow
 !**/.gitkeep
+!.gitkeep
