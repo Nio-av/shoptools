@@ -9,15 +9,23 @@ services:
             COMPOSER_CACHE_DIR: \
         command:
             - install
-            # - sh -c './vendor/bin/phpunit --version'
         working_dir: /var/www
         volumes:
             - ./www:/var/www
+    phpunit:
+        image: php:latest
+        restart: "no"
+        volumes:
+            - ./www:/var/www
+        working_dir: /var/www
+        entrypoint: vendor/bin/phpunit
     web:
         container_name: php_web
         build:
             context: ./
             dockerfile: Dockerfile
+        depends_on:
+            - composer
         ports:
             - "80:80"
         working_dir: /var/www/html/
@@ -25,4 +33,4 @@ services:
         tty: true
         volumes:
             - ./www:/var/www
-            - ./db_data:/var/lib/mysql
+            # - ./db_data:/var/lib/mysql
