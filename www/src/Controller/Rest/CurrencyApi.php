@@ -22,6 +22,10 @@ class CurrencyApi extends RestService
         $apiData = json_decode($apiData);
 
         $apiData = $this->translateJsonObjectToArray($apiData);
+        if (count($apiData) < 1) {
+            // TODO: Log Error
+            throw new \ErrorException('No Exchange Rates Available');
+        }
         return $apiData;
     }
 
