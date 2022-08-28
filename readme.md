@@ -13,15 +13,15 @@ Data source for currencies and exchange rates (for now data is in JSON, but you'
 "CHF": 0.97,
 "CNY": 2.3
 }
-} ```
+}
+
+```
 
 The output (list of results) should be in JSON or CVS format (might change in the future).
 Possible interface for the converter, it’s just an example, feel free to improve, modify it or define your own:
 
-```
-interface CurrencyConverterInterface
+```interface CurrencyConverterInterface
 {
 public function convert(float $amount, Currency $currency): string;
 }
-
 ```
