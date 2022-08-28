@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use App\Controller\Rest\CurrencyApi;
-
 /**
  * Basic getter for a currency
  */
@@ -33,34 +31,13 @@ class Currency
     public function __construct(string $currencyCode)
     {
         $this->currencyCode = strtolower($currencyCode);
-        $this->getExchangeRatesFromApi();
-    }
-
-
-
-    /**
-     * @param float[] $exchangeRate associative array; format: [[EUR] => 1, [USD] => 5,]
-     * @return void
-     */
-    public function setExchangeRates(array $exchangeRates): void
-    {
-        $this->exchangeRates = $exchangeRates;
     }
 
     /**
-     * @return float[] $exchangeRate associative array; format: [[EUR] => 1, [USD] => 5,]
+     * @return string ISO 4217
      */
-    public function getExchangeRates(): array
+    public function getCurrencyCode(): string
     {
-        return $this->exchangeRates;
-    }
-
-    /**
-     * Load Exchange Rate from API & save to object
-     */
-    private function getExchangeRatesFromApi(): void
-    {
-        $Api = new CurrencyApi();
-        $this->exchangeRates = $Api->getExchangeRates($this->currencyCode);
+        return $this->currencyCode;
     }
 }
