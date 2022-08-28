@@ -12,7 +12,7 @@ class CurrencyApi extends RestService
     /**
      * Load Exchange Rate from API
      *
-     * @param string $sourceCurrency
+     * @return float[] associative array; format: [[EUR] => 1, [USD] => 5, ...]
      */
     public function getExchangeRates(string $sourceCurrency): array
     {
@@ -35,6 +35,12 @@ class CurrencyApi extends RestService
         if (property_exists($object, 'exchangeRates')) {
             $exchangeRates = (array) $object->exchangeRates;
             $exchangeRates = array_map('floatval', $exchangeRates);
+
+            $exchangeRates = array_map(function ($v) {
+                return round($v, 2, PHP_ROUND_HALF_UP);
+            }, $exchangeRates);
+
+
             if (count($exchangeRates) < 1) {
                 // TODO: Log Error
             }
