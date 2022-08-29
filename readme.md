@@ -37,3 +37,10 @@ interface CurrencyConverterInterface
 - If you use docker-compose up -d, have a look into the logfiles of yout docker-Network
 - TODOs: Improve Tests. This is just a basic Structure / Demo.
 - Tests should also run without problems on docker-compose up -d (currently, there are some Problems while using REST-Communication )
+
+### Important Files:
+
+- www\Controller\Rest\RestService: Basic Communication with an API
+- www\Controller\Rest\CurrencyApi: Implementation of specific JSON-API
+- www\Controller\CurrencyConverterService: Calculate Values
+- www\Model\Currency: Model for Currency
